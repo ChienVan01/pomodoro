@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/favicon.ico" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Pomodoro.io</title>
+  </head>
+  <body onload="template()" id="color">
+    <div class="main-container">
+      <header id="header">
+        <img src="img/icon-white.png" alt="" width="4%" />
+        <h1>POMODORO</h1>
+      </header>
+
+      <div class="main-countdown">
+        <div class="line"></div>
+        <div class="time-frame">
+          <div class="time-tab">
+            <button id="pomodoro" class="time-tab active">Pomodoro</button>
+            <button id="break" class="time-tab">Short Break</button>
+          </div>
+          <div class="time-pattern">
+            <div id="minutes"></div>
+            <div>:</div>
+            <div id="seconds"></div>
+          </div>
+          <button id="btn-start">START</button>
+          <button id="btn-pause">STOP</button>
+        </div>
+        <div class="time-working">Time to work!</div>
+      </div>
+      <div class="todo-list"></div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

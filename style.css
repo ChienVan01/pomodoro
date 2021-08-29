@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  background-color: #0081a7;
+}
+
+.start {
+  background-color: #0081a7;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.break {
+  background-color: #00a3ac;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+
+#header {
+  color: white;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header img {
+  margin-right: 5px;
+}
+
+.line {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 1px;
+  margin-bottom: 40px;
+}
+
+.main-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.main-countdown {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.time-frame {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 20px 0 30px;
+}
+.time-tab button {
+  padding: 5px 25px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.time-tab.active {
+  background: none rgba(0, 0, 0, 0.15);
+  opacity: 1;
+}
+.time-pattern {
+  font-size: 120px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-start {
+  cursor: pointer;
+  color: #0081a7;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgb(235 235 235) 0px 6px 0px;
+  background-color: white;
+  font-size: 22px;
+  width: 200px;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  display: inline-block;
+  transform: translateY(6px);
+  transition: color 0.5s ease-in-out;
+}
+#btn-pause {
+  cursor: pointer;
+  color: #0081a7;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 22px;
+  width: 200px;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  display: none;
+  transition: color 0.5s ease-in-out;
+}
+
+.resume {
+  transform: translateY(6px);
+  cursor: pointer;
+  color: #00a3ac;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 22px;
+  width: 200px;
+  box-shadow: rgb(235 235 235) 0px 6px 0px;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  display: none;
+  transition: color 0.5s ease-in-out;
+}
+
+.todo-list {
+  /* background-color: rgba(255, 255, 255, 0.1); */
+}
