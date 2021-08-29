@@ -14,6 +14,7 @@ const sec = document.getElementById("seconds");
 const color = document.getElementById("color");
 const pomodoro = document.getElementById("pomodoro");
 const breakT = document.getElementById("break");
+const timeWorking = document.getElementsByClassName("time-working");
 
 localStorage.setItem("btn", "focus"); //khởi tạo localStorage
 // localStorage.removeItem("btn");
@@ -33,6 +34,7 @@ pomodoro.addEventListener("click", () => {
   sec.innerHTML = seconds_sessions; //set time cho div
   btnPause.innerHTML = "STOP";   //set STOP lại cho button trong trường hợp trước đó bị set START
   btnPause.classList.remove("resume"); //xóa class của button trước đó
+  timeWorking[0].innerHTML = "Time to work!";
 
   color.classList = "start"; //set màu
   btnPause.style.color = "#" + seColor; //set màu
@@ -53,6 +55,8 @@ breakT.addEventListener("click", () => {
   sec.innerHTML = seconds_sessions; //set time cho div
   btnPause.innerHTML = "STOP"; //set STOP lại cho button trong trường hợp trước đó bị set START
   btnPause.classList.remove("resume"); //xóa class của button trước đó
+  timeWorking[0].innerHTML = "Time for a break!";
+
 
   color.remove = "start"; //xóa class của break time
   color.classList = "break"; //set màu
@@ -99,12 +103,12 @@ btnStart.addEventListener("click", () => {
   let btn = localStorage.getItem("btn"); //gán giá trị của localStorage vào biến
 
   if(btn === "focus") {
-    mins =  0.1; //set time pomodoro
+    mins =  25; //set time pomodoro
     btnStart.style.display = "none";
     btnPause.style.display = "inline-block";
     btnPause.style.color = "#" + mainColor;
   } else{
-    mins = 0.05; //set time break
+    mins = 5; //set time break
     btnStart.style.display = "none";
     btnPause.style.display = "inline-block";
     btnPause.style.color = "#" + seColor;
@@ -132,6 +136,8 @@ function decremenT(){
       localStorage.setItem("btn", "break");
 
       btnStart.innerHTML = "START BREAK";
+      timeWorking[0].innerHTML = "Time to work!";
+
       color.remove = "start";
       color.classList = "break";
       btnPause.style.color = "#" + mainColor;
@@ -151,6 +157,8 @@ function decremenT(){
 
       btnStart.innerHTML = "START";
       color.classList = "start";
+      timeWorking[0].innerHTML = "Time for a break!";
+
       btnPause.style.color = "#" + seColor;
 
       btnStart.style.display = "inline-block";

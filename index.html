@@ -40,8 +40,18 @@
         </div>
         <div class="time-working">Time to work!</div>
       </div>
-      <div class="todo-list"></div>
+      <div class="todo-list">
+        <div>
+          <input type="text" id="input" placeholder="Enter task..." />
+          <span class="btnAdd" onclick="newElement()">Add task</span>
+          <span class="task-title">Tasks</span>
+        </div>
+        <div class="list-task">
+          <ul id="taskUL"></ul>
+        </div>
+      </div>
     </div>
   </body>
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/todo.js"></script>
 </html>
