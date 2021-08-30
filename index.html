@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="img/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/7b177480b6.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,7 +44,7 @@
         </div>
         <div class="time-working">Time to work!</div>
       </div>
-      <div class="todo-list">
+      <div class="todo-list" onload="listTask()">
         <div>
           <input type="text" id="input" placeholder="Enter task..." />
           <span class="btnAdd" onclick="newElement()">Add task</span>

@@ -25,6 +25,7 @@ let initial, paused, mins, seconds;
 function template() {
   minDiv.innerHTML = minutes_sessions;
   sec.innerHTML = seconds_sessions; 
+  
 }
 
 //tab time pomodoro
