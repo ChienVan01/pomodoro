@@ -1,5 +1,6 @@
 let taskList = [];
 let taskListOld = [];
+let newTaskList = [];
 
 // Kiểm tra nếu taskList trên localStorage 
 if(localStorage.getItem('setTaskList')) {
@@ -9,8 +10,6 @@ if(localStorage.getItem('setTaskList')) {
   for(let x = 0; x < taskListOld.length; x++) {
     taskList = taskListOld[x];
   }
-  // localStorage.setItem('setTaskList', JSON.stringify(taskList));
-
 }
 // localStorage.removeItem('setTaskList');
 
@@ -37,39 +36,44 @@ for(let y = 0; taskList.length > y; y++) {
 //Delete
 var close = document.getElementsByClassName("close");
 var i;
-let newTaskList = [];
-for (i = 0; i < close.length; i++) {
-  // Thêm sự kiện cho nút close
-  close[i].onclick = function () {
-    // Lấy ra element cha của close[i] -> <li>
-    var div = this.parentElement;
-    // Xóa nội dung của li ra khỏi mảng taskList
-    
-    newTaskList = taskList.filter(e => e.name !== this.parentElement.innerText);
-    localStorage.setItem('setTaskList', JSON.stringify(newTaskList));
-    newTaskList.push(JSON.parse((localStorage.getItem('setTaskList'))))
-    // Cập nhật lại nội dung của taskList trong localStorage vào newTaskList
-    for(let x = 0; x < newTaskList.length; x++) {
-      taskList = newTaskList[x];
-    }
-    div.style.display = "none";
-  };
+function deleteTask() {
+  for (i = 0; i < close.length; i++) {
+    // Thêm sự kiện cho nút close
+    close[i].onclick = function () {
+      // Lấy ra element cha của close[i] -> <li>
+      var div = this.parentElement;
+      // Xóa nội dung của li ra khỏi mảng taskList
+      
+      newTaskList = taskList.filter(e => e.name !== this.parentElement.innerText);
+      localStorage.setItem('setTaskList', JSON.stringify(newTaskList));
+      newTaskList.push(JSON.parse((localStorage.getItem('setTaskList'))))
+      // Cập nhật lại nội dung của taskList trong localStorage vào newTaskList
+      for(let x = 0; x < newTaskList.length; x++) {
+        taskList = newTaskList[x];
+      }
+      div.style.display = "none";
+    };
+  }
 }
+deleteTask();
 
 //check
 var list = document.querySelector("ul");
 list.addEventListener("click", function (event) {
-  console.log(event.target.tagName);
   if (event.target.tagName == "LI" ) {
     event.target.classList.toggle("checked");
     for(let x = 0; taskList.length > x; x++){
-      if(taskList[x].name === event.target.innerText){
+      if((taskList[x].name === event.target.innerText)){
         taskList[x].Completed = true;
         console.log("New",newTaskList);
-      }
-      localStorage.setItem('setTaskList', JSON.stringify(taskList));
+        localStorage.setItem('setTaskList', JSON.stringify(taskList));
+        if(!(event.target.classList[0] === "checked")){
+          taskList[x].Completed = false;
+          localStorage.setItem('setTaskList', JSON.stringify(taskList));
+        } 
+      } 
     }
-  }
+  } 
 });
 
 function newElement() {
@@ -97,21 +101,7 @@ function newElement() {
   var span = document.createElement("SPAN");
   span.className = "close far fa-trash-alt";
   li.appendChild(span);
-
-    for (i = 0; i < close.length; i++) {
-    close[close.length - 1].onclick = function () {
-    var div = this.parentElement;
-   
-    newTaskList = (taskList.filter(e => e.name !== this.parentElement.innerText));
-    console.log("New",newTaskList);
-    localStorage.setItem('setTaskList', JSON.stringify(newTaskList));
-    newTaskList.push(JSON.parse((localStorage.getItem('setTaskList'))))
-    for(let x = 0; x < newTaskList.length; x++) {
-      taskList = newTaskList[x];
-    }
-    div.style.display = "none";
-  };
-  }
+  deleteTask();
 }    
 
   

@@ -18,7 +18,6 @@ const timeWorking = document.getElementsByClassName("time-working");
 
 localStorage.setItem("btn", "focus"); //khởi tạo localStorage
 // localStorage.removeItem("btn");
-// localStorage.removeItem( "focus");
 
 let initial, paused, mins, seconds;
 
